@@ -14,19 +14,19 @@ import java.util.List;
 
 @Repository
 public class BurgerDaoImpl implements BurgerDao{
-    private EntityManager entityManager; // EntityManager dependency injection ile alınır
+    private EntityManager entityManager;
 
-    @Autowired // Constructor injection
+    @Autowired
     public  BurgerDaoImpl(EntityManager entityManager){
         this.entityManager=entityManager;
     }
-    @Override //Burger kaydi
+    @Override
     @Transactional
     public Burger save(Burger burger){
         entityManager.persist(burger);
         return  burger;
     }
-    @Override //Id'ye gore Burger bul
+    @Override
 
     public Burger findById(long id){
         Burger burger = entityManager.find(Burger.class, id);
@@ -72,14 +72,14 @@ public class BurgerDaoImpl implements BurgerDao{
     }
 
 
-    @Override// Burger güncelle - transaction gerekli
+    @Override
     @Transactional
     public Burger update(Burger burger) {
         return entityManager.merge(burger);
     }
 
 
-    @Override // ID'ye göre burger sil
+    @Override
     @Transactional
     public Burger remove(long id) {
         Burger burger = findById(id);

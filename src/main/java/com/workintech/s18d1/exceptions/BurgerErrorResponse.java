@@ -2,7 +2,7 @@ package com.workintech.s18d1.exceptions;
 
 public class BurgerErrorResponse {
 
-    // Hata mesajı
+
     private String message;
 
     public BurgerErrorResponse(String message) {
